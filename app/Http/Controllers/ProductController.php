@@ -12,7 +12,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all();
+        return response()->json([
+            'message' => 'Product List',
+            'status' => 200,
+            'data' => $products
+        ]);
     }
 
     /**
