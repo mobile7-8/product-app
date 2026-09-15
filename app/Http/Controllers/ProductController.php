@@ -28,15 +28,20 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(string $id)
     {
-        //
+        $pro = Product::find($id);
+        return response()->json([
+            'message' => 'Product recieved Successfully',
+            'status' => 200,
+            'product' => $pro
+        ]);
     }
 
     /**
