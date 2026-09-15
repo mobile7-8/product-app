@@ -7,28 +7,19 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        
+
     }
 
     /**
@@ -44,25 +35,35 @@ class ProductController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    // YOUR PART
     public function edit(Product $product)
     {
-        //
+        return view('products.edit', compact('product'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    // YOUR PART
     public function update(Request $request, Product $product)
     {
-        //
+        $product = Product::findOrFail($product->id);
+
+        $validated = $request->validate([
+            'name' => ['sometimes', 'required', 'string', 'max:50'],
+            'price' => ['sometimes', 'required', 'numeric', 'min:0'],
+            'qty' => ['sometimes', 'required', 'integer', 'min:0'],
+            'discount' => ['sometimes', 'required', 'numeric', 'min:0'],
+            'des' => ['sometimes', 'nullable', 'string'],
+
+        ]);
+
+        $product->update($validated);
+
+        return response()->json([
+            'message' => 'Product updated successfully',
+            'status' => 200,
+            'product' => $product,
+        ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Product $product)
     {
         //
