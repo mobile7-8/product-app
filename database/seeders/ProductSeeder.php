@@ -8,9 +8,6 @@ use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         Product::create([
@@ -51,6 +48,41 @@ class ProductSeeder extends Seeder
             'qty' => 150,
             'discount' => 0,
             'des' => 'Description for Product 5',
+        ]);
+        Product::create([
+            'name' => 'Product 6',
+            'price' => 12.99,
+            'qty' => 80,
+            'discount' => 3,
+            'des' => 'Description for Product 6',
+        ]);
+        Product::create([
+            'name' => 'Product 7',
+            'price' => 9.99,
+            'qty' => 120,
+            'discount' => 0,
+            'des' => 'Description for Product 7',
+        ]);
+        Product::create([
+            'name' => 'Product 8',
+            'price' => 14.99,
+            'qty' => 60,
+            'discount' => 1,
+            'des' => 'Description for Product 8',
+        ]);
+        Product::create([
+            'name' => 'Product 9',
+            'price' => 7.99,
+            'qty' => 90,
+            'discount' => 0,
+            'des' => 'Description for Product 9',
+        ]);
+        Product::created([
+            'name' => 'Product 10',
+            'price' => 11.99,
+            'qty' => 110,
+            'discount' => 2,
+            'des' => 'Description for Product 10',
         ]);
     }
 }
