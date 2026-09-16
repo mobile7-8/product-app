@@ -7,59 +7,82 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $products = Product::all();
+        return response()->json([
+            'message' => 'Product List',
+            'status' => 200,
+            'data' => $products
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+                'name' => 'required|string|50',
+                'price' => 'required|decimal',
+                'qty' => 'required|unsignedInteger',
+                'discount' => 'required|decimal',
+                'des' => 'required|string'
+        ]);
+
+        $product = Product::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'qty' => $request->qty,
+            'discount' => $request->discount,
+            'des' => $request->description
+        ]);
+
+        return response()->json([
+            'message' => 'Product created successfully',
+            'status' => 201,
+            'data' => $product
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Product $product)
+    public function show(string $id)
     {
-        //
+        $pro = Product::find($id);
+        return response()->json([
+            'message' => 'Product recieved Successfully',
+            'status' => 200,
+            'product' => $pro
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Product $product)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
+    // YOUR PART
     public function update(Request $request, Product $product)
     {
-        //
+        $product = Product::findOrFail($product->id);
+
+        $validated = $request->validate([
+            'name' => ['sometimes', 'required', 'string', 'max:50'],
+            'price' => ['sometimes', 'required', 'numeric', 'min:0'],
+            'qty' => ['sometimes', 'required', 'integer', 'min:0'],
+            'discount' => ['sometimes', 'required', 'numeric', 'min:0'],
+            'des' => ['sometimes', 'nullable', 'string'],
+
+        ]);
+
+        $product->update($validated);
+
+        return response()->json([
+            'message' => 'Product updated successfully',
+            'status' => 200,
+            'product' => $product,
+        ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Product $product)
     {
-        //
+        $product = Product::find($product->id);
+        $product->delete();
+
+        return response()->json([
+            'message' => 'Product deleted successfully',
+            'status' => 200,
+        ]);
     }
 }
