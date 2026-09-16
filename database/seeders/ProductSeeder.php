@@ -87,4 +87,5 @@ class ProductSeeder extends Seeder
 
 
     }
+
 }
