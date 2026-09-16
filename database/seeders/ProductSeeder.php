@@ -77,7 +77,7 @@ class ProductSeeder extends Seeder
             'discount' => 0,
             'des' => 'Description for Product 9',
         ]);
-        Product::created([
+        Product::create([
             'name' => 'Product 10',
             'price' => 11.99,
             'qty' => 110,
