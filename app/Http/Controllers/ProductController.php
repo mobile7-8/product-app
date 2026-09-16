@@ -17,31 +17,19 @@ class ProductController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function create()
     {
-        $request->validate([
-                'name' => 'required|string|50',
-                'price' => 'required|decimal',
-                'qty' => 'required|unsignedInteger',
-                'discount' => 'required|decimal',
-                'des' => 'required|string'
-        ]);
-
-        $product = Product::create([
-            'name' => $request->name,
-            'price' => $request->price,
-            'qty' => $request->qty,
-            'discount' => $request->discount,
-            'des' => $request->description
-        ]);
-
-        return response()->json([
-            'message' => 'Product created successfully',
-            'status' => 201,
-            'data' => $product
-        ]);
+        //
     }
 
+    public function store(Request $request)
+    {
+
+    }
+
+    /**
+     * Display the specified resource.
+     */
     public function show(string $id)
     {
         $pro = Product::find($id);
@@ -50,6 +38,12 @@ class ProductController extends Controller
             'status' => 200,
             'product' => $pro
         ]);
+    }
+
+    // YOUR PART
+    public function edit(Product $product)
+    {
+        return view('products.edit', compact('product'));
     }
 
     // YOUR PART
@@ -77,12 +71,6 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
-        $product = Product::find($product->id);
-        $product->delete();
-
-        return response()->json([
-            'message' => 'Product deleted successfully',
-            'status' => 200,
-        ]);
+        //
     }
 }
