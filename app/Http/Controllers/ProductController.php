@@ -53,9 +53,9 @@ class ProductController extends Controller
     }
 
     // YOUR PART
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        $product = Product::findOrFail($product->id);
+        $product = Product::findOrFail($id);
 
         $validated = $request->validate([
             'name' => ['sometimes', 'required', 'string', 'max:50'],
@@ -75,9 +75,9 @@ class ProductController extends Controller
         ]);
     }
 
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        $product = Product::find($product->id);
+        $product = Product::find($id);
         $product->delete();
 
         return response()->json([

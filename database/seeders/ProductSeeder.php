@@ -233,17 +233,13 @@ class ProductSeeder extends Seeder
             'discount' => 0,
             'des' => 'Description for Product 30',
         ]);
-        
+
         Product::create([
             'name' => 'Product 31',
             'price' => 30.99,
             'qty' => 1,
             'discount' => 0,
             'des' => 'Description for Product 31',
-        ]); 
+        ]);
     }
-
-
-
-
 }
