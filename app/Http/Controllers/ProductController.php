@@ -20,11 +20,11 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-                'name' => 'required|string|50',
-                'price' => 'required|decimal',
-                'qty' => 'required|unsignedInteger',
-                'discount' => 'required|decimal',
-                'des' => 'required|string'
+            'name' => 'required|string|max:50',
+            'price' => 'required|numeric|min:0',
+            'qty' => 'required|integer|min:0',
+            'discount' => 'required|numeric|min:0',
+            'des' => 'required|string',
         ]);
 
         $product = Product::create([
