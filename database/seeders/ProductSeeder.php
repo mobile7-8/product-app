@@ -241,9 +241,93 @@ class ProductSeeder extends Seeder
             'discount' => 0,
             'des' => 'Description for Product 31',
         ]); 
+Product::create([
+    'name' => 'Product 31',
+    'price' => 30.99,
+    'qty' => 1,
+    'discount' => 0,
+    'des' => 'Description for Product 31',
+]);
+
+Product::create([
+    'name' => 'Product 32',
+    'price' => 30.99,
+    'qty' => 1,
+    'discount' => 0,
+    'des' => 'Description for Product 32',
+]);
+
+Product::create([
+    'name' => 'Product 33',
+    'price' => 30.99,
+    'qty' => 1,
+    'discount' => 0,
+    'des' => 'Description for Product 33',
+]);
+
+Product::create([
+    'name' => 'Product 34',
+    'price' => 30.99,
+    'qty' => 1,
+    'discount' => 0,
+    'des' => 'Description for Product 34',
+]);
+
+Product::create([
+    'name' => 'Product 35',
+    'price' => 30.99,
+    'qty' => 1,
+    'discount' => 0,
+    'des' => 'Description for Product 35',
+]);
+
+Product::create([
+    'name' => 'Product 36',
+    'price' => 30.99,
+    'qty' => 1,
+    'discount' => 0,
+    'des' => 'Description for Product 36',
+]);
+
+Product::create([
+    'name' => 'Product 37',
+    'price' => 30.99,
+    'qty' => 1,
+    'discount' => 0,
+    'des' => 'Description for Product 37',
+]);
+
+Product::create([
+    'name' => 'Product 38',
+    'price' => 30.99,
+    'qty' => 1,
+    'discount' => 0,
+    'des' => 'Description for Product 38',
+]);
+
+Product::create([
+    'name' => 'Product 39',
+    'price' => 30.99,
+    'qty' => 1,
+    'discount' => 0,
+    'des' => 'Description for Product 39',
+]);
+
+Product::create([
+    'name' => 'Product 40',
+    'price' => 30.99,
+    'qty' => 1,
+    'discount' => 0,
+    'des' => 'Description for Product 40',
+]);
+
+Product::create([
+    'name' => 'Product 41',
+    'price' => 30.99,
+    'qty' => 1,
+    'discount' => 0,
+    'des' => 'Description for Product 41',
+]);
+
     }
-
-
-
-
 }
