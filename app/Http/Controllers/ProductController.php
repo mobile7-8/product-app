@@ -32,7 +32,7 @@ class ProductController extends Controller
             'price' => $request->price,
             'qty' => $request->qty,
             'discount' => $request->discount,
-            'des' => $request->description
+            'des' => $request->des,
         ]);
 
         return response()->json([
