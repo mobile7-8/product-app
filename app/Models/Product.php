@@ -16,4 +16,10 @@ class Product extends Model
         'discount',
         'des',
     ];
+
+    protected $casts = [
+        'qty'=> 'integer',
+        'price'=> 'float',
+        'discount'=> 'float'
+    ];
 }
